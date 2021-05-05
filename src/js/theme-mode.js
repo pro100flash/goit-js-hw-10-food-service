@@ -11,15 +11,20 @@ const Theme = {
 refs.body.classList.add(Theme.LIGHT);
 refs.switcher.addEventListener('change', switchBox);
 
-const savedTheme = localStorage.getItem('Theme');
-
-function switchBox() {
-  refs.body.classList.toggle(Theme.DARK);
-
-  localStorage.setItem('Theme', refs.body.classList);
-};
-
-if (savedTheme === 'light-theme dark-theme') {
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
   refs.body.classList.add(Theme.DARK);
   refs.switcher.checked = true;
+};
+
+function switchBox() {
+  if (refs.switcher.checked) {
+    refs.body.classList.add(Theme.DARK)
+    refs.body.classList.remove(Theme.LIGHT)
+    localStorage.setItem('theme', Theme.DARK)
+  } else {
+    refs.body.classList.add(Theme.LIGHT)
+    refs.body.classList.remove(Theme.DARK)
+    localStorage.setItem('theme', Theme.LIGHT)
+  }
 };
