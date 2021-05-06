@@ -1,6 +1,6 @@
 const refs = {
   body: document.querySelector('body'),
-  switcher: document.querySelector('.js-switch-input'),
+  switcher: document.querySelector('#theme-switch-toggle'),
 };
 
 const theme = {
@@ -8,8 +8,15 @@ const theme = {
   DARK: 'dark-theme',
 };
 
-refs.body.classList.add(theme.LIGHT);
 refs.switcher.addEventListener('change', switchBox);
+
+if (localStorage.getItem('theme') === theme.DARK) {
+  refs.body.classList.toggle.checked = true;
+  refs.body.classList.add(theme.DARK);
+} else { 
+  refs.body.classList.add(theme.LIGHT);
+};
+
 
 if (localStorage.getItem('theme')) {
   refs.body.classList.add(localStorage.getItem('theme'));
