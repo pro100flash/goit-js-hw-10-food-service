@@ -10,13 +10,13 @@ const theme = {
 
 refs.switcher.addEventListener('change', switchBox);
 
-if (localStorage.getItem('theme') === theme.DARK) {
-  refs.body.classList.toggle.checked = true;
-  refs.body.classList.add(theme.DARK);
+if (localStorage.getItem('theme')) {
+  refs.body.classList.add(localStorage.getItem('theme'));
 } else { 
   refs.body.classList.add(theme.LIGHT);
 };
 
+refs.switcher.cheked = localStorage.getItem('theme') === theme.DARK;
 refs.switcher.checked = refs.body.classList.contains(theme.DARK)
 ? true
 : false;
