@@ -17,13 +17,9 @@ if (localStorage.getItem('theme') === theme.DARK) {
   refs.body.classList.add(theme.LIGHT);
 };
 
-
-if (localStorage.getItem('theme')) {
-  refs.body.classList.add(localStorage.getItem('theme'));
-  refs.switcher.checked = refs.body.classList.contains(theme.DARK)
-  ? true
-  : false;
-};
+refs.switcher.checked = refs.body.classList.contains(theme.DARK)
+? true
+: false;
 
 function switchBox() {
   if (this.checked) {
