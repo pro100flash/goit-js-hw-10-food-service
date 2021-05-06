@@ -8,6 +8,7 @@ const theme = {
   DARK: 'dark-theme',
 };
 
+refs.body.classList.add(theme.LIGHT);
 refs.switcher.addEventListener('change', switchBox);
 
 if (localStorage.getItem('theme')) {
